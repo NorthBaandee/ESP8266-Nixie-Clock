@@ -16,7 +16,7 @@
 #define ledPin 13
 
 // Replace with your network credentials
-const char* ssid = "Tenda";
+const char* ssid = "";
 const char* password = "";
 
 // Define NTP Client to get time
@@ -26,7 +26,7 @@ NTPClient timeClient(ntpUDP, "pool.ntp.org");
 byte mByte[0x07]; // holds the array from the DS3231 register
 byte tByte[0x07]; // holds the array from the NTP server
 
-// change the values here to suit your timezone
+// change the values here to suit your timezone. This is for Perth, Western Australia.
 
 const long gmtOffset = 3600 * 8; // 3600 seconds is +1 hours
 const long summerTimeOffset = 0; // change to 0 in winter
@@ -42,6 +42,8 @@ void setup(){
   pinMode(latchPin, OUTPUT);
   pinMode(dataPin, OUTPUT);  
   pinMode(clockPin, OUTPUT);
+
+  //output for the led colons
   pinMode(ledPin, OUTPUT);
 
   Serial.begin(115200); 
